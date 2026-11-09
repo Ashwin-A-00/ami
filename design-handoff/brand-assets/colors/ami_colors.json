@@ -1,0 +1,22 @@
+{
+  "ami-blue": {
+    "name": "Ami Blue",
+    "hex": "#4A6BFF"
+  },
+  "midnight": {
+    "name": "Midnight",
+    "hex": "#0A0E2A"
+  },
+  "signal-mint": {
+    "name": "Signal Mint",
+    "hex": "#7DF9E3"
+  },
+  "headset-coral": {
+    "name": "Headset Coral",
+    "hex": "#FF9A76"
+  },
+  "spark-gold": {
+    "name": "Spark Gold",
+    "hex": "#FFD166"
+  }
+}

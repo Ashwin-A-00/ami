@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>allnex Employee Center - Ami</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="loaded">
+
+<header class="top">
+  <div class="logo" aria-label="allnex"><svg viewBox="0 0 330 112" preserveAspectRatio="xMidYMid meet"><text x="5" y="87" font-family="Arial,Helvetica,sans-serif" font-weight="900" font-style="italic" font-size="86" fill="#fff">allnex</text><rect x="183" y="21" width="25" height="5" fill="#b52b91"/><rect x="213" y="21" width="31" height="5" fill="#d42b81"/><rect x="249" y="21" width="34" height="5" fill="#ef4c23"/><rect x="288" y="21" width="32" height="5" fill="#8fc63f"/></svg></div>
+  <nav class="nav"><button>Home</button><button>Knowledge Base</button><button>Ask for Support</button><button>My Tickets</button><button>My IT Assets</button><button>IT Intranet</button><button>DM Portal</button></nav>
+  <div class="nav-icons">
+    <button class="ask-top" id="topAmi"><span class="ami-slot" data-ami data-tight data-calm></span><span class="txt">Ask Ami</span></button>
+    <div class="avatar">AK</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-copy">
+    <h1>Hi Arun,</h1>
+    <h2>How can we help you today?</h2>
+    <form class="search" id="searchForm">
+      <span class="search-logo" data-ami data-tight data-calm></span>
+      <input id="searchInput" placeholder="Search for answers, services, and more..." aria-label="Search">
+      <span class="ai-powered">✦ AI powered</span>
+      <button class="search-btn" aria-label="Search">⌕</button>
+    </form>
+    <div class="chips"><span>Try saying...</span><button class="chip" type="button">Reset my password</button><button class="chip" type="button">Create a request</button><button class="chip" type="button">SAP help</button><button class="chip" type="button">Travel support</button></div>
+  </div>
+  <div class="hero-slogan"><i>Always on</i><i>Every language</i><i>Human first!</i></div>
+  <div class="bot-hero" id="heroBot" data-ami></div>
+</section>
+
+<main class="main">
+  <div class="title-row"><h2>Popular topics</h2><span class="view">View all</span></div>
+  <div class="gridwrap">
+    <section class="topics">
+      <button class="tile blue"><span class="ti">▣</span><span class="tl">IT Equipment & Access</span></button>
+      <button class="tile green"><span class="ti">⚙</span><span class="tl">Software & Applications</span></button>
+      <button class="tile purple"><span class="ti">▦</span><span class="tl">Workplace Services</span></button>
+      <button class="tile orange"><span class="ti">✈</span><span class="tl">Travel & Expenses</span></button>
+      <button class="tile teal"><span class="ti">●●</span><span class="tl">HR Services</span></button>
+      <button class="tile yellow"><span class="ti">▤</span><span class="tl">Finance & Procurement</span></button>
+      <button class="tile lime"><span class="ti">◒</span><span class="tl">Health, Safety & Sustainability</span></button>
+      <button class="tile plain"><span class="ti">▦</span><span class="tl">All Topics</span></button>
+    </section>
+    <aside class="panel">
+      <div class="title-row"><h3>My approvals</h3><span class="view">View all</span></div>
+      <div class="approval"><span class="apico">▣</span><span><b>Laptop request</b><br><small>REQ0012345</small></span><span class="status pending">Pending</span></div>
+      <div class="approval"><span class="apico">⚙</span><span><b>Software access</b><br><small>REQ0012344</small></span><span class="status approved">Approved</span></div>
+      <div class="approval"><span class="apico">✈</span><span><b>Travel request</b><br><small>REQ0012343</small></span><span class="status pending">Pending</span></div>
+    </aside>
+  </div>
+</main>
+
+<div class="greet" id="greet"><b>Hi! I’m Ami 👋</b><br>Your AI assistant for allnex.</div>
+<button class="launcher" id="launcher" aria-label="Open Ami" aria-expanded="false"><span class="stars"><b>✦</b><b>✦</b><b>✦</b><b>✦</b></span><span class="ami-slot" data-ami data-tight data-launcher></span></button>
+
+<section class="chat" id="chat" aria-hidden="true">
+  <div class="chathead">
+    <span class="ami-slot" id="chatAmi" data-ami data-tight data-calm></span>
+    <div class="ct"><b>Ami</b><small>Your digital service desk colleague</small></div>
+    <button class="close" id="close" aria-label="Close chat">×</button>
+  </div>
+  <div class="msgs" id="msgs">
+    <div class="row"><span class="mini" data-ami data-tight data-calm></span><div class="msg">Hi Arun. Ask me a question, search knowledge, find a service, or let me connect you to support.</div></div>
+  </div>
+  <form class="compose" id="chatForm"><div class="entry"><input id="chatInput" placeholder="Type a message..."><button>➤</button></div></form>
+</section>
+
+<script src="app.js" defer></script>
+</body>
+</html>

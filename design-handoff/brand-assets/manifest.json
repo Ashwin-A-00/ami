@@ -1,0 +1,128 @@
+[
+  {
+    "file": "logos/allnow_otto_chat_logo.svg",
+    "size": "144 x 144 px (viewBox)",
+    "used_for": "Otto premium-chat header",
+    "servicenow_field": "Assistant Designer > Assistants > Branding > Premium chat > Chat logo",
+    "format": "SVG"
+  },
+  {
+    "file": "logos/allnow_otto_chat_logo.png",
+    "size": "144 x 144 px",
+    "used_for": "PNG fallback for the Otto chat header",
+    "servicenow_field": "same field, PNG fallback",
+    "format": "PNG (transparent)"
+  },
+  {
+    "file": "logos/allnow_otto_avatar.png",
+    "size": "512 x 512 px",
+    "used_for": "Bot profile / live profile picture",
+    "servicenow_field": "Branding configuration > Bot Profile > Live Profile > Picture",
+    "format": "PNG (transparent, artwork inside central 80%)"
+  },
+  {
+    "file": "logos/allnow_portal_logo.svg",
+    "size": "designed for max 200 x 46 px",
+    "used_for": "Employee Center header (light header)",
+    "servicenow_field": "Service Portal > Service Portal Configuration > Branding Editor > Logo",
+    "format": "SVG (text outlined)"
+  },
+  {
+    "file": "logos/allnow_portal_logo_on_dark.svg",
+    "size": "designed for max 200 x 46 px",
+    "used_for": "Employee Center header (dark header)",
+    "servicenow_field": "Branding Editor > Logo",
+    "format": "SVG (text outlined)"
+  },
+  {
+    "file": "logos/allnow_topic_icon.png",
+    "size": "56 x 56 px",
+    "used_for": "Employee Center topic tile",
+    "servicenow_field": "Employee Center topic configuration > Icon",
+    "format": "PNG (transparent)"
+  },
+  {
+    "file": "logos/allnow_topic_icon.svg",
+    "size": "56 x 56 px (source)",
+    "used_for": "Editable source of the topic icon",
+    "servicenow_field": "-",
+    "format": "SVG"
+  },
+  {
+    "file": "banners/allnow_home_banner.png",
+    "size": "1440 x 400 px",
+    "used_for": "Employee Center home page (height fixed 400, width responsive; content kept central)",
+    "servicenow_field": "Homepage / background image configuration",
+    "format": "PNG"
+  },
+  {
+    "file": "banners/allnow_home_banner_background_only.png",
+    "size": "1440 x 400 px",
+    "used_for": "Optional: home banner without the mascot",
+    "servicenow_field": "Homepage / background image configuration",
+    "format": "PNG"
+  },
+  {
+    "file": "banners/allnow_topic_banner.png",
+    "size": "1258 x 300 px",
+    "used_for": "Employee Center topic pages (height fixed 300, width responsive; wide, low detail)",
+    "servicenow_field": "Topic background image",
+    "format": "PNG"
+  },
+  {
+    "file": "expressions/ami_happy.png",
+    "size": "512 x 512 px",
+    "used_for": "Expression: happy",
+    "servicenow_field": "-",
+    "format": "PNG (transparent)"
+  },
+  {
+    "file": "expressions/ami_happy.svg",
+    "size": "vector",
+    "used_for": "Expression: happy",
+    "servicenow_field": "-",
+    "format": "SVG"
+  },
+  {
+    "file": "expressions/ami_wink.png",
+    "size": "512 x 512 px",
+    "used_for": "Expression: wink",
+    "servicenow_field": "-",
+    "format": "PNG (transparent)"
+  },
+  {
+    "file": "expressions/ami_wink.svg",
+    "size": "vector",
+    "used_for": "Expression: wink",
+    "servicenow_field": "-",
+    "format": "SVG"
+  },
+  {
+    "file": "expressions/ami_joy.png",
+    "size": "512 x 512 px",
+    "used_for": "Expression: joy",
+    "servicenow_field": "-",
+    "format": "PNG (transparent)"
+  },
+  {
+    "file": "expressions/ami_joy.svg",
+    "size": "vector",
+    "used_for": "Expression: joy",
+    "servicenow_field": "-",
+    "format": "SVG"
+  },
+  {
+    "file": "app-icon/ami_app_icon.png",
+    "size": "1024 x 1024 px",
+    "used_for": "App / bot icon for other platforms (Teams, Slack, mobile)",
+    "servicenow_field": "-",
+    "format": "PNG"
+  },
+  {
+    "file": "app-icon/ami_app_icon.svg",
+    "size": "vector",
+    "used_for": "App / bot icon source",
+    "servicenow_field": "-",
+    "format": "SVG"
+  }
+]

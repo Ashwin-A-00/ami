@@ -1,0 +1,217 @@
+:root{--navy:#173b6c;--deep:#061d3c;--blue:#4A6BFF;--midnight:#0A0E2A;--mint:#7DF9E3;--coral:#FF9A76;--gold:#FFD166;--green:#8CC63E;--ink:#14213d;--muted:#667085;--line:#dbe3ee;--bg:#f5f8fc}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",Arial,sans-serif;color:var(--ink);background:var(--bg)}
+button,input{font:inherit}
+
+/* ================= Ami mascot ================= */
+.ami-wrap{position:relative;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.ami-wrap.no-hover{cursor:default}
+[data-ami]{display:block}
+.ami{display:block;width:100%;height:auto;overflow:visible}
+.ami.tight .spark,.ami.tight .shadow{display:none}
+.ami g,.ami path,.ami ellipse,.ami rect,.ami circle{transform-box:fill-box;transform-origin:center}
+
+.ami .look{transform:translate(calc(var(--lx,0)*1px),calc(var(--ly,0)*1px));transition:transform .14s ease-out}
+.ami .tilt{transform:rotate(calc(var(--lx,0)*.5deg));transition:transform .2s ease-out}
+.ami .float{animation:float 4s ease-in-out infinite}
+.ami .shadow{animation:shadow 4s ease-in-out infinite}
+.ami .spark{animation:twinkleS 2.6s ease-in-out infinite}
+.ami .spark.s2{animation-delay:.9s}
+.ami .spark.s3{animation-delay:1.7s}
+
+/* expressions: happy (default), wink, joy */
+.ami .arc,.ami .mouthJoy{opacity:0}
+.ami .eye,.ami .arc,.ami .mouth,.ami .mouthJoy{transition:opacity .15s}
+.ami .eye{animation:blink 5s infinite}
+.ami .eR{animation-delay:.03s}
+.ami[data-expr=wink] .eR{opacity:0}
+.ami[data-expr=wink] .arcR{opacity:1}
+.ami[data-expr=joy] .eye{opacity:0}
+.ami[data-expr=joy] .arc,.ami[data-expr=joy] .mouthJoy{opacity:1}
+.ami[data-expr=joy] .mouth{opacity:0}
+.ami[data-expr=joy] .spark{animation-duration:.7s}
+
+/* hover (also when hovering the parent button) */
+.ami-wrap:not(.no-hover):hover .float,button:hover .ami-wrap:not(.no-hover) .float{animation:wiggle .8s ease-in-out,float 4s .8s ease-in-out infinite}
+.ami-wrap:not(.no-hover):hover .spark,button:hover .ami-wrap:not(.no-hover) .spark{animation-duration:.9s}
+.ami-wrap:not(.no-hover):hover .headset,button:hover .ami-wrap:not(.no-hover) .headset{filter:drop-shadow(0 0 7px #ff9a76b0)}
+.ami-wrap:not(.no-hover):hover .eye,button:hover .ami-wrap:not(.no-hover) .eye{filter:drop-shadow(0 0 4px #7df9e3)}
+.ami-wrap .ami[data-expr=joy] .float{animation:joy .6s ease-in-out infinite}
+
+/* blink on demand (used by the launcher on click) */
+.ami .eye{transition:opacity .15s,transform .08s}
+.ami[data-expr=blink] .eye{animation:none;transform:scaleY(.08)}
+
+/* calm = navbar, search bar, chat: no float, no blinking, no sparkle, no cursor tracking */
+button .ami-wrap{cursor:pointer}
+.calm .ami .float,.calm .ami .eye,.calm .ami .spark,.calm .ami .shadow{animation:none!important}
+.calm .ami{transition:transform .25s ease}
+button:hover .calm .ami{transform:scale(1.07)}
+/* steady = launcher: slow float only, blinks only when clicked */
+.steady .ami .eye{animation:none!important}
+.steady .ami .float{animation:float 6s ease-in-out infinite}
+
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes shadow{0%,100%{transform:scaleX(1);opacity:.25}50%{transform:scaleX(.85);opacity:.15}}
+@keyframes twinkleS{0%,100%{transform:scale(1) rotate(0);opacity:1}50%{transform:scale(.55) rotate(20deg);opacity:.55}}
+@keyframes blink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.08)}}
+@keyframes wiggle{
+  0%{transform:rotate(0) translateY(0)}
+  20%{transform:rotate(-7deg) scale(1.05) translateY(-8px)}
+  45%{transform:rotate(6deg) scale(1.05) translateY(-4px)}
+  70%{transform:rotate(-3deg) translateY(-2px)}
+  100%{transform:rotate(0) translateY(0)}
+}
+@keyframes joy{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-16px) scale(1.04)}}
+
+/* click / landing confetti */
+.burst{position:absolute;left:50%;top:42%;width:10px;height:10px;border-radius:50%;background:var(--c);pointer-events:none;z-index:5;animation:burst .9s ease-out forwards}
+@keyframes burst{to{transform:translate(var(--dx),var(--dy)) scale(.2);opacity:0}}
+
+/* ================= Header ================= */
+.top{height:72px;background:#203f70;color:#fff;display:flex;align-items:center;padding:0 22px;gap:24px;position:sticky;top:0;z-index:30;box-shadow:0 2px 8px #071c3c33}
+.logo{width:122px;height:50px;display:flex;align-items:center;justify-content:flex-start;flex:0 0 auto}
+.logo svg{width:118px;height:auto;display:block}
+.nav{display:flex;align-items:center;justify-content:flex-end;gap:26px;flex:1}
+.nav button{border:0;background:transparent;color:#fff;font-weight:650;font-size:13px;cursor:pointer;padding:11px 0}
+.nav button:hover{color:var(--mint)}
+.nav-icons{display:flex;align-items:center;gap:14px}
+.ask-top{display:flex;align-items:center;gap:8px!important;padding:11px 0!important;border:0;border-radius:0!important;background:transparent!important;color:#fff!important;font-weight:650!important;font-size:13px!important;cursor:pointer}
+.ask-top .ami-slot{width:36px;flex:0 0 auto}
+.avatar{width:34px;height:34px;border-radius:50%;background:#0f2d59;display:grid;place-items:center;font-size:11px;font-weight:800}
+
+/* ================= Hero ================= */
+.hero{position:relative;overflow:hidden;min-height:375px;background:radial-gradient(circle at 87% 66%,#8cc63e66 0,transparent 21%),linear-gradient(115deg,#06466f 0,#006f98 55%,#2457aa 100%);padding:56px clamp(28px,5vw,78px);color:#fff}
+.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;border:80px solid #ffffff0c}
+.hero:before{width:520px;height:520px;left:47%;top:-385px}
+.hero:after{width:660px;height:660px;left:33%;bottom:-610px}
+.hero-copy{position:relative;z-index:2;max-width:820px}
+.hero h1{font-size:48px;letter-spacing:-1px;margin:0;font-weight:760;line-height:1.02}
+.hero h2{font-size:29px;margin:8px 0 27px;font-weight:560}
+.search{height:68px;background:#fff;border-radius:17px;display:flex;align-items:center;padding:0 14px 0 10px;gap:12px;box-shadow:0 15px 34px #071c3c40;max-width:820px}
+.search input{flex:1;border:0;outline:0;font-size:16px;color:#344054;min-width:50px}
+.search-logo{width:52px;flex:0 0 auto;cursor:default}
+.ai-powered{display:flex;align-items:center;gap:6px;color:#5b67a2;font-size:12px;font-weight:700;white-space:nowrap}
+.search-btn{width:40px;height:40px;border:0;background:#fff;color:#08274d;font-size:25px;cursor:pointer}
+.chips{position:relative;z-index:2;display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-top:17px}
+.chips span{font-size:12px;color:#d9f0fa;margin-right:3px}
+.chip{border:1px solid #ffffff2c;background:#ffffff18;color:#fff;border-radius:19px;padding:9px 15px;cursor:pointer}
+.chip:hover{background:#ffffff2f}
+.hero-slogan{position:absolute;z-index:5;right:295px;bottom:48px;color:#fff;transform:rotate(-5deg);font-family:"Segoe Print","Comic Sans MS",cursive;font-size:18px;line-height:1.18;text-align:center;text-shadow:0 2px 8px #001a3d55}
+.hero-slogan i{display:block;font-style:normal}
+.hero-slogan:after{content:"";display:block;width:105px;height:4px;background:linear-gradient(90deg,var(--mint),#d8ff19);border-radius:9px;margin:10px auto 0;transform:rotate(-8deg)}
+.bot-hero{position:absolute;z-index:4;right:34px;bottom:6px;width:260px}
+.bot-hero svg{filter:drop-shadow(0 18px 30px #00152b66)}
+
+/* ================= Topics + approvals ================= */
+.main{padding:30px clamp(24px,5vw,78px) 110px}
+.title-row{display:flex;align-items:center;justify-content:space-between}
+.title-row h2{font-size:27px}
+.view{color:#4a6bff;font-weight:700;font-size:14px}
+.gridwrap{display:grid;grid-template-columns:minmax(0,1fr) 315px;gap:25px}
+.topics{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.tile{min-height:144px;border:0;border-radius:15px;color:#fff;text-align:center;padding:18px;cursor:pointer;box-shadow:0 8px 20px #091d3a19;transition:.18s}
+.tile:hover{transform:translateY(-3px);box-shadow:0 14px 25px #091d3a26}
+.ti{display:block;font-size:35px}
+.tl{display:block;font-weight:750;margin-top:27px;font-size:15px}
+.blue{background:linear-gradient(135deg,#1478d4,#4A6BFF)}
+.green{background:linear-gradient(135deg,#1ba463,#5bbb42)}
+.purple{background:linear-gradient(135deg,#634cb5,#8865d8)}
+.orange{background:linear-gradient(135deg,#f05b43,#FF9A76)}
+.teal{background:linear-gradient(135deg,#0c8493,#23b1a6)}
+.yellow{background:linear-gradient(135deg,#e5a900,#FFD166);color:#47370a}
+.lime{background:linear-gradient(135deg,#67b52d,#99d23d)}
+.plain{background:#eef2f7;color:#1f385b}
+.panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:17px;box-shadow:0 8px 22px #10254c12}
+.panel h3{margin:3px 0 10px;font-size:22px}
+.approval{display:grid;grid-template-columns:35px 1fr auto;gap:9px;padding:13px 0;border-top:1px solid #e8edf4;align-items:center}
+.approval:first-of-type{border-top:0}
+.apico{width:32px;height:32px;border-radius:9px;background:#eef4ff;display:grid;place-items:center}
+.status{font-size:10px;padding:5px 7px;border-radius:12px}
+.pending{background:#fff1c8;color:#8b6100}
+.approved{background:#d9f7e6;color:#166b3d}
+
+/* ================= Launcher + greeting ================= */
+.launcher{position:fixed;right:29px;bottom:25px;width:82px;height:82px;border:0;border-radius:50%;background:#fff;box-shadow:0 15px 40px #0a0e2a4f;z-index:60;cursor:pointer;display:grid;place-items:center;opacity:0}
+.launcher.on{opacity:1}
+.launcher.enter{animation:enter 1.3s cubic-bezier(.16,1.25,.33,1) both}
+.launcher .ami-slot{width:62px}
+.launcher .ami{transition:transform .25s ease}
+.launcher:hover .ami{transform:scale(1.06)}
+/* sparkles around the bubble: yellow, same as the hero Ami */
+.stars{position:absolute;inset:-28px;pointer-events:none}
+.stars b{position:absolute;font-weight:400;color:var(--gold);text-shadow:0 0 10px currentColor;opacity:0}
+.stars b:nth-child(1){right:1px;top:1px;font-size:24px;animation:twinkle 2.4s .4s infinite}
+.stars b:nth-child(2){right:-8px;top:34px;font-size:15px;animation:twinkle 2.1s 1s infinite}
+.stars b:nth-child(3){left:5px;top:-3px;font-size:12px;animation:twinkle 1.9s 1.45s infinite}
+.stars b:nth-child(4){left:-9px;bottom:8px;font-size:11px;animation:twinkle 2.3s .75s infinite}
+.greet{position:fixed;right:123px;bottom:45px;background:#fff;padding:12px 15px;border-radius:15px;box-shadow:0 10px 30px #0a0e2a38;z-index:55;font-size:13px;opacity:0}
+.greet.show{animation:greet 1s both}
+.greet.hide{animation:greetOut .4s both}
+
+/* ================= Chat ================= */
+.chat{position:fixed;right:27px;bottom:120px;width:min(390px,calc(100vw - 28px));height:610px;max-height:calc(100vh - 140px);background:#fff;border-radius:20px;box-shadow:0 25px 70px #0a0e2a59;z-index:70;overflow:hidden;display:flex;flex-direction:column;opacity:0;transform:translateY(28px) scale(.96);pointer-events:none;transition:.25s}
+.chat.open{opacity:1;transform:none;pointer-events:auto}
+.chathead{height:78px;background:linear-gradient(110deg,#09224b,#274c9c);display:flex;align-items:center;padding:0 15px;color:#fff;gap:11px}
+.chathead .ami-slot{width:54px;flex:0 0 auto}
+.ct{flex:1}
+.ct b{display:block;font-size:18px}
+.ct small{color:#d8e3ff}
+.close{width:34px;height:34px;border:0;border-radius:9px;background:#ffffff18;color:#fff;font-size:20px;cursor:pointer}
+.msgs{flex:1;padding:17px;background:#f8f9fc;overflow:auto}
+.row{display:flex;gap:8px;margin:12px 0;align-items:flex-end;animation:in .25s ease-out}
+.row.me{justify-content:flex-end}
+.mini{width:32px;flex:0 0 auto;cursor:default}
+.msg{max-width:80%;padding:11px 13px;border-radius:14px;border:1px solid #e0e5ed;background:#fff;font-size:14px;line-height:1.4}
+.row.me .msg{background:#173b6c;color:#fff;border-color:#173b6c}
+.msg.typing{display:flex;gap:4px;padding:14px 13px}
+.msg.typing i{width:7px;height:7px;border-radius:50%;background:#8b97d8;animation:dot 1s infinite}
+.msg.typing i:nth-child(2){animation-delay:.15s}
+.msg.typing i:nth-child(3){animation-delay:.3s}
+.compose{padding:12px;border-top:1px solid #e2e8f0}
+.entry{display:flex;border:1px solid #cdd5e0;border-radius:12px;overflow:hidden}
+.entry input{flex:1;border:0;outline:0;padding:13px}
+.entry button{width:48px;border:0;background:var(--blue);color:#fff;cursor:pointer}
+
+@keyframes amiIdle{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-5px) rotate(-2deg)}}
+@keyframes enter{0%{opacity:0;transform:translate(80px,45px) scale(.2) rotate(25deg)}56%{opacity:1;transform:translate(-8px,-8px) scale(1.12) rotate(-6deg)}78%{transform:translate(3px,2px) scale(.96) rotate(2deg)}100%{opacity:1;transform:none}}
+@keyframes twinkle{0%,32%,100%{opacity:0;transform:scale(.3) rotate(0)}48%{opacity:1;transform:scale(1.35) rotate(25deg)}65%{opacity:.45;transform:scale(.8) rotate(55deg)}}
+@keyframes greet{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:none}}
+@keyframes greetOut{from{opacity:1}to{opacity:0}}
+@keyframes dot{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes in{from{opacity:0;transform:translateY(8px)}}
+
+/* ================= Page intro (runs straight away on refresh) ================= */
+
+/* Ami: fly in + spin, squash on landing, stretch bounce, settle */
+body.loaded .bot-hero{animation:cartoonIn 1.7s linear .1s both}
+@keyframes cartoonIn{
+  0%{opacity:0;transform:translate(-330%,-30%) scale(.05) rotate(-720deg);filter:blur(8px);animation-timing-function:cubic-bezier(.2,.7,.3,1)}
+  12%{opacity:1}
+  58%{transform:translate(0,-8%) scale(1.2) rotate(14deg);filter:blur(0);animation-timing-function:cubic-bezier(.5,0,.9,.4)}
+  70%{transform:translate(0,2%) scale(1.25,.78) rotate(-5deg);animation-timing-function:ease-out}
+  82%{transform:translate(0,-7%) scale(.9,1.12) rotate(3deg);animation-timing-function:ease-in-out}
+  92%{transform:translate(0,0) scale(1.04,.96) rotate(-1deg);animation-timing-function:ease-out}
+  100%{opacity:1;transform:none;filter:none}
+}
+/* shockwave ring at landing */
+.bot-hero::before{content:"";position:absolute;inset:8%;border-radius:50%;border:5px solid var(--mint);opacity:0;pointer-events:none}
+body.loaded .bot-hero::before{animation:ring .8s ease-out 1.25s both}
+@keyframes ring{0%{opacity:.9;transform:scale(.6)}100%{opacity:0;transform:scale(1.7)}}
+
+/* text, slogan, tiles and approvals arrive after Ami lands */
+body.loaded .hero-copy{animation:copyIn .9s cubic-bezier(.16,1.2,.3,1) 1s both}
+@keyframes copyIn{from{opacity:0;transform:translateX(-50px) scale(.96)}to{opacity:1;transform:none}}
+body.loaded .hero-slogan{animation:sloganIn .7s ease-out 1.6s both}
+@keyframes sloganIn{from{opacity:0;transform:rotate(-5deg) translateY(14px)}to{opacity:1;transform:rotate(-5deg)}}
+body.loaded .tile{animation:fadeUp .6s ease-out backwards}
+body.loaded .panel{animation:fadeUp .6s ease-out 1.7s backwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}}
+
+/* ================= Responsive ================= */
+@media(max-width:1050px){.nav button:not(.ask-top){display:none}.topics{grid-template-columns:repeat(2,1fr)}.gridwrap{grid-template-columns:1fr}.hero-slogan{right:235px}.bot-hero{right:10px;width:200px}}
+@media(max-width:700px){.logo{width:90px}.logo svg{width:88px}.top{padding:0 13px}.hero{padding:38px 20px 150px}.hero h1{font-size:38px}.hero h2{font-size:23px}.hero-slogan{left:22px;right:auto;bottom:35px}.bot-hero{width:150px;right:8px}.topics{grid-template-columns:1fr 1fr}.ai-powered{display:none}.greet{display:none}}
+@media(max-width:470px){.topics{grid-template-columns:1fr}.ask-top span.txt{display:none}}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}

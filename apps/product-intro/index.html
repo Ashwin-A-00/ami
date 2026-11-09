@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Ami · Product introduction</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="is-loading">
+
+  <!-- Loading screen -->
+  <div id="loader" role="status" aria-live="polite">
+    <div class="starfield"></div>
+    <div class="loader-ami" data-ami data-loading></div>
+    <p class="loader-text" id="loaderText">Waking up Ami…</p>
+    <div class="bar"><span id="barFill"></span></div>
+    <small id="barPct">0%</small>
+  </div>
+
+  <header class="nav">
+    <a class="brand" href="#top"><span class="brand-ami" data-ami data-tight data-calm></span><b>Ami</b></a>
+    <nav>
+      <a href="#overview" data-i18n="n1">Overview</a>
+      <a href="#expressions" data-i18n="n2">Expressions</a>
+      <a href="#try" data-i18n="n3">Ask Ami</a>
+      <a href="#brand" data-i18n="n4">Brand</a>
+      <a href="#files" data-i18n="n5">Files</a>
+    </nav>
+    <label class="lang">
+      <span class="sr" data-i18n="lang_label">Language</span>
+      <span aria-hidden="true">🌐</span>
+      <select id="lang"></select>
+    </label>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="starfield"></div>
+      <div class="hero-ami" id="heroAmi" data-ami></div>
+      <div class="hero-copy">
+        <p class="eyebrow" data-i18n="eyebrow">Product introduction</p>
+        <h1>Ami<i class="spark-dot"></i></h1>
+        <p class="tagline" data-i18n="tagline">Your digital service desk colleague</p>
+        <div class="pills">
+          <span class="pill mint" data-i18n="p1">Always on</span>
+          <span class="pill gold" data-i18n="p2">Every language</span>
+          <span class="pill coral" data-i18n="p3">Human first</span>
+        </div>
+        <a class="cta" href="#try" data-i18n="cta">Try Ami</a>
+        <p class="locale-chip" id="localeChip"></p>
+        <p class="hint" data-i18n="hint">Move your mouse, hover or click Ami</p>
+      </div>
+    </section>
+
+    <!-- Overview -->
+    <section id="overview" class="section">
+      <div class="head reveal">
+        <h2 data-i18n="over_t">What Ami does</h2>
+        <p data-i18n="over_s"></p>
+      </div>
+      <div class="feat">
+        <article class="card reveal"><i>💬</i><h3 data-i18n="c1t"></h3><p data-i18n="c1d"></p></article>
+        <article class="card reveal"><i>🔎</i><h3 data-i18n="c2t"></h3><p data-i18n="c2d"></p></article>
+        <article class="card reveal"><i>🧭</i><h3 data-i18n="c3t"></h3><p data-i18n="c3d"></p></article>
+        <article class="card reveal"><i>🤝</i><h3 data-i18n="c4t"></h3><p data-i18n="c4d"></p></article>
+      </div>
+    </section>
+
+    <!-- Expressions -->
+    <section id="expressions" class="section alt">
+      <div class="head reveal">
+        <h2 data-i18n="exp_t">Expressions</h2>
+        <p data-i18n="exp_s"></p>
+      </div>
+      <div class="cards3">
+        <article class="card center reveal"><div class="ex" data-ami data-calm data-base="happy"></div><p data-i18n="e1"></p></article>
+        <article class="card center reveal"><div class="ex" data-ami data-calm data-base="wink"></div><p data-i18n="e2"></p></article>
+        <article class="card center reveal"><div class="ex" data-ami data-calm data-base="joy"></div><p data-i18n="e3"></p></article>
+      </div>
+    </section>
+
+    <!-- Chat demo -->
+    <section id="try" class="section try">
+      <div class="try-ami reveal" id="tryAmi" data-ami data-calm></div>
+      <div class="panel reveal">
+        <h2 data-i18n="try_t">Ask Ami</h2>
+        <p class="sub" data-i18n="try_s"></p>
+        <div class="msgs" id="msgs">
+          <div class="msg bot" data-i18n="greet"></div>
+        </div>
+        <div class="quick">
+          <button type="button" data-q="1" data-i18n="q1"></button>
+          <button type="button" data-q="2" data-i18n="q2"></button>
+          <button type="button" data-q="3" data-i18n="q3"></button>
+        </div>
+        <form id="form" autocomplete="off">
+          <input id="q" data-i18n-ph="ph" aria-label="Message">
+          <button data-i18n="send">Send</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Icon set (brand spec sizes) -->
+    <section id="icons" class="section alt">
+      <div class="head reveal">
+        <h2 data-i18n="icons_t">Ami icon set</h2>
+        <p data-i18n="icons_s"></p>
+      </div>
+      <div class="icons">
+        <article class="card center reveal">
+          <div class="ico chat" data-ami data-tight data-calm></div>
+          <h3 data-i18n="i1"></h3><small class="dim" data-w="144" data-h="144"></small>
+        </article>
+        <article class="card center reveal">
+          <div class="ico avatar" data-ami data-calm></div>
+          <h3 data-i18n="i2"></h3><small class="dim" data-w="512" data-h="512"></small>
+        </article>
+        <article class="card center reveal">
+          <div class="ico portal"><span class="wordmark" dir="ltr"><span>all</span><b>Now</b></span></div>
+          <h3 data-i18n="i3"></h3><small class="dim" data-w="200" data-h="46"></small>
+        </article>
+        <article class="card center reveal">
+          <div class="ico topic" data-ami data-tight data-calm></div>
+          <h3 data-i18n="i4"></h3><small class="dim" data-w="56" data-h="56"></small>
+        </article>
+      </div>
+    </section>
+
+    <!-- Brand colours -->
+    <section id="brand" class="section">
+      <div class="head reveal"><h2 data-i18n="brand_t">Brand colours</h2></div>
+      <div class="swatches">
+        <div class="reveal"><i style="background:#4A6BFF"></i><b>Ami Blue</b><small dir="ltr">#4A6BFF</small></div>
+        <div class="reveal"><i style="background:#0A0E2A"></i><b>Midnight</b><small dir="ltr">#0A0E2A</small></div>
+        <div class="reveal"><i style="background:#7DF9E3"></i><b>Signal Mint</b><small dir="ltr">#7DF9E3</small></div>
+        <div class="reveal"><i style="background:#FF9A76"></i><b>Headset Coral</b><small dir="ltr">#FF9A76</small></div>
+        <div class="reveal"><i style="background:#FFD166"></i><b>Spark Gold</b><small dir="ltr">#FFD166</small></div>
+      </div>
+    </section>
+
+    <!-- File deliverables -->
+    <section id="files" class="section alt">
+      <div class="head reveal"><h2 data-i18n="files_t">File deliverables</h2></div>
+      <div class="table-wrap reveal">
+        <table>
+          <thead><tr><th data-i18n="th1">File</th><th data-i18n="th2">Size</th><th data-i18n="th3">Used for</th></tr></thead>
+          <tbody>
+            <tr><td><code dir="ltr">allnow_otto_chat_logo.svg</code></td><td class="dim" data-w="144" data-h="144"></td><td data-i18n="u1"></td></tr>
+            <tr><td><code dir="ltr">allnow_otto_chat_logo.png</code></td><td class="dim" data-w="144" data-h="144"></td><td data-i18n="u2"></td></tr>
+            <tr><td><code dir="ltr">allnow_otto_avatar.png</code></td><td class="dim" data-w="512" data-h="512"></td><td data-i18n="u3"></td></tr>
+            <tr><td><code dir="ltr">allnow_portal_logo.svg</code></td><td class="dim" data-w="200" data-h="46"></td><td data-i18n="u4"></td></tr>
+            <tr><td><code dir="ltr">allnow_topic_icon.png</code></td><td class="dim" data-w="56" data-h="56"></td><td data-i18n="u5"></td></tr>
+            <tr><td><code dir="ltr">allnow_home_banner.png</code></td><td class="dim" data-w="1440" data-h="400"></td><td data-i18n="u6"></td></tr>
+            <tr><td><code dir="ltr">allnow_topic_banner.png</code></td><td class="dim" data-w="1258" data-h="300"></td><td data-i18n="u7"></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer><b>Ami</b> <span id="footMeta"></span></footer>
+
+  <script src="i18n.js"></script>
+  <script src="app.js" defer></script>
+</body>
+</html>
